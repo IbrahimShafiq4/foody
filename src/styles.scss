@@ -1,0 +1,204 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Foody-primary: mat.define-palette(mat.$indigo-palette);
+$Foody-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Foody-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Foody-theme: mat.define-light-theme((
+  color: (
+    primary: $Foody-primary,
+    accent: $Foody-accent,
+    warn: $Foody-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Foody-theme);
+
+@import 'ngx-toastr/toastr';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.bg-dark-main {
+    background-color: #1F263E !important;
+}
+
+.bg-main {
+    background-color: #009247 !important;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.auth-card {
+    $text-main: #4aa35a;
+    $text-dark-gray: #3a3a3d;
+    background-color: #fff;
+    padding: 2.5rem 3.5rem;
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba($color: #000000, $alpha: 0.8),
+                -0.1rem -0.1rem 0.5rem rgba($color: #000000, $alpha: 0.8),
+                inset 0.1rem 0.1rem 0.5rem rgba($color: #000000, $alpha: 0.8),
+                inset -0.1rem -0.1rem 0.5rem rgba($color: #000000, $alpha: 0.8);
+    h1 {
+        color: #494949;
+        font-size: 1.563rem;
+        font-weight: bolder;
+    }
+    
+    p {
+        color: #49494985
+    }
+
+    .input-group {
+        $fontSize: 1.2rem;
+        i {
+            color: #8391A1;
+            font-size: $fontSize
+        }
+
+        .form-control::placeholder {
+            color: #8391A1;
+            font-size: $fontSize
+        }
+    }
+
+    .links {
+        a {
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+
+            &.text-dark-gray {
+                color: $text-dark-gray;
+            }
+
+            &.text-main {
+                color: $text-main;
+            }
+        }
+    }
+}
+
+button {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    transition: 0.2s linear;
+
+    &.primary {
+        background-color: #4aa35a;
+        color: #fff;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &.dark {
+        background-color: #3a3a3d;
+        color: #fff;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &.dark-outline {
+        border: 1px solid #3a3a3d;
+        background-color: transparent;
+        color: #3a3a3d;
+
+        &:hover {
+            opacity: 0.7;
+            background-color: #3a3a3d;
+            color: #fff;
+        }
+    }
+
+    &:disabled {
+        cursor: no-drop;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-menu-content {
+    button .mat-mdc-menu-item {
+        font-size: 10px !important;
+    }
+}
+
+.cdk-overlay-pane {
+    max-width: 600px !important;
+    max-height: 450px !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 1rem !important;
+}
+
+.mat-mdc-button, 
+.mat-mdc-button:visited, 
+.mat-mdc-button:focus {
+    --mat-mdc-button-persistent-ripple-color: transparent;
+}
+
+.mdc-text-field {
+    border-radius: 30px !important;
+}
+
+.mdc-line-ripple::before {
+    border-bottom: none !important;
+}
+
+.mdc-text-field--filled {
+    --mdc-filled-text-field-active-indicator-height: 0px !important;
+    --mdc-filled-text-field-focus-active-indicator-height: 0px !important;
+    border-radius: 40px;
+}
+
+.mdc-line-ripple—active {
+    border-bottom: none !important;
+}
+
+.mat-mdc-paginator-container {
+    justify-content: center !important;
+
+    > * {
+        font-size: 1.5rem !important;
+        font-family: cursive !important;
+    }
+}
+
+.mat-mdc-dialog-container, .mat-mdc-dialog-container .mdc-dialog__container, .mat-mdc-dialog-container .mdc-dialog__surface {
+    max-height: unset !important;
+    min-height: unset !important;
+    min-width: unset !important;
+    max-width: unset !important;
+}

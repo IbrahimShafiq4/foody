@@ -1,0 +1,21 @@
+<aside class="bg-dark-main overflow-hidden py-5">
+    <figure class="mx-auto">
+        <img src="./assets/images/3.svg" class="w-75" alt="logo food food-app">
+    </figure>
+
+    <div class="mt-5">
+        <ul class="list-unstyled d-flex flex-column gap-3">
+            <ng-container *ngFor="let item of menu" >
+                <li *ngIf="item.isActive" routerLinkActive="active-li">
+                    <a class="text-decoration-none" [routerLink]="item.link">
+                        <span>
+                            <i [class]="item.icon"></i>
+                        </span>
+                        <span>{{ item.text }}</span>
+                    </a>
+                </li>
+            </ng-container>
+            
+        </ul>
+    </div>
+</aside>

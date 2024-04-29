@@ -1,0 +1,18 @@
+.pop-up {
+    width: 600px;
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .close-icon {
+        font-size: 1.5rem;
+        border: 1px solid #cc0000;
+        border-radius: 50%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: #cc0000;
+    }
+}

@@ -1,0 +1,20 @@
+.auth {
+    background-image: linear-gradient(110deg, rgba(55, 140, 47, 0.631) 30%, rgba(255, 255, 255, 0.32) 70%);
+}
+
+.pop-up-message {
+    padding: 1rem 2rem;
+}
+
+ngx-dropzone {
+    height: auto;
+    margin-bottom: 2rem;
+    width: fit-content;
+    padding: 0.5rem;
+    // border: none;
+
+    ngx-dropzone-label {
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+}

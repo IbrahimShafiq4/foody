@@ -1,0 +1,22 @@
+<section class="d-flex justify-content-center align-items-center px-3 py-3">
+    <div class="pop-up d-flex flex-column gap-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 mat-dialog-title class="fw-bolder">Hi {{ userName }}</h2>
+            <div mat-dialog-actions>
+                <button mat-button (click)="onNoClick()">
+                    <i class="fa-solid fa-close close-icon"></i>
+                </button>
+            </div>
+        </div>
+        <div mat-dialog-content class="d-flex flex-column gap-2">
+            <p class="h3 fw-bold">Add Category</p>
+            <mat-form-field class="w-100">
+                <input matInput [(ngModel)]="data.name" class="fs-5" placeholder="Category Name">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="pt-5 border-top d-flex justify-content-end">
+            <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial type="button"
+                class="primary px-5 text-white">Ok</button>
+        </div>
+    </div>
+</section>

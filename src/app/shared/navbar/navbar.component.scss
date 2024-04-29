@@ -1,0 +1,40 @@
+section {
+    background-color: #F8F9FB;
+    border-radius: 10rem;
+
+    i, input, input::placeholder {
+        color: #1f263e !important;
+    }
+
+    .form-control:focus {
+        box-shadow: none !important;
+    }
+
+    .user-details {
+        i {
+            cursor: pointer;
+        }
+
+        .title {
+            font-weight: bolder;
+        }
+    }
+
+    figure {
+        display: block;
+    }
+
+}
+
+@media (max-width: 767px) {
+    section {
+
+        .row {
+            gap: 0.2rem;
+        }
+
+        figure {
+            display: none;
+        }
+    }
+}

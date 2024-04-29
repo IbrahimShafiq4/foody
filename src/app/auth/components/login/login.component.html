@@ -1,0 +1,77 @@
+<section class="position-relative auth">
+    <div class="layout position-absolute top-0 start-0 z-2 w-100 h-100 bg-black bg-opacity-75"></div>
+    <div class="container position-relative z-3">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-8">
+                <div class="auth-card">
+                    <figure class="w-50 mx-auto">
+                        <img src="assets/images/logo.svg" alt="logo" class="w-75">
+                    </figure>
+
+                    <h1>Login</h1>
+                    <p>Welcome Back! Please enter your details</p>
+
+                    <form (ngSubmit)="onLogin(loginForm)" [formGroup]="loginForm">
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <input type="text" formControlName="email" class="form-control"
+                                placeholder="Enter your E-mail" [ngClass]="{
+                                        'is-invalid': loginForm.get('email')?.touched && loginForm.get('email')?.invalid,
+                                        'is-valid': loginForm.get('email')?.touched && loginForm.get('email')?.valid,
+                                    }">
+
+                        </div>
+                        <div class="alert alert-danger py-1" role="alert"
+                            *ngIf="loginForm.get('email')?.getError('required') && loginForm.get('email')?.touched">
+                            E-Mail is required
+                        </div>
+
+                        <div class="alert alert-danger py-1" role="alert"
+                            *ngIf="loginForm.get('email')?.getError('email') && loginForm.get('email')?.touched">
+                            E-Mail is Invalid
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            <input [type]="hide ? 'password' : 'text'" formControlName="password" class="form-control"
+                                placeholder="Password" [ngClass]="{
+                                    'is-invalid': loginForm.get('password')?.touched && loginForm.get('password')?.invalid,
+                                    'is-valid': loginForm.get('password')?.touched && loginForm.get('password')?.valid,
+                                }">
+                            <span class="input-group-text" id="basic-addon1" (click)="hide = !hide">
+                                <i class="fa-solid" [class]="hide ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </span>
+                        </div>
+                        <div class="alert alert-danger py-1" role="alert"
+                            *ngIf="loginForm.get('password')?.getError('required') && loginForm.get('password')?.touched">
+                            Password is required
+                        </div>
+
+                        <div class="alert alert-danger py-1" role="alert"
+                            *ngIf="loginForm.get('password')?.getError('pattern') && loginForm.get('password')?.touched">
+                            Password Must contain [[CapitalCase & LowerCase] Letters , Numbers, Symbols]
+                        </div>
+
+                        <div class="alert alert-danger py-1" role="alert"
+                            *ngIf="loginForm.get('password')?.getError('minlength') && loginForm.get('password')?.touched">
+                            Password minLength must be at least 8 Characters
+                        </div>
+
+                        <div class="links mb-3 d-flex justify-content-between align-items-center">
+                            <a class="text-decoration-none text-dark-gray" routerLink="/auth/register">Register Now
+                                ?</a>
+                            <a class="text-decoration-none text-main" routerLink="/auth/forget">Forget Password ?</a>
+                        </div>
+
+                        <button class="primary w-100" [disabled]="loginForm.invalid">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
